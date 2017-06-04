@@ -9,19 +9,11 @@ namespace CleanBin
 {
     public class ProjectCleaner
     {
-        private string v;
-
         public Dictionary<string, string[]> ProjectFolders { get; set; }
 
         public bool Verbose { get; set; }
         public string RootDirectory { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="rootDir"></param>
-        /// <param name="verbose"></param>
-        /// <param name="recursive"></param>
         public ProjectCleaner(string rootDir, bool verbose = false)
         {
             var rootdir = rootDir.ToLower();
@@ -84,9 +76,6 @@ namespace CleanBin
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public void Execute()
         {
             long totSize = 0;
