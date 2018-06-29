@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cleanbin.Lib;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,14 +15,13 @@ namespace CleanBin
         {
             bool debug = false;
 
-            Console.WriteLine("......................................................................");
-            Console.WriteLine("CLEANBIN: v1 by Sveroa");
+            Logger.WriteLog(LogLevelL4N.DEBUG, "CLEANBIN: v1.1 by Sveroa");
 
             var cmd = new Arguments(args);
 
             if (cmd["DIR"] == null)
             {
-                Console.WriteLine("Missing /DIR:xxx parameter");
+                Console.WriteLine("CLEANBIN: Missing /DIR:xxx parameter");
                 return;
             }
 
@@ -32,6 +32,7 @@ namespace CleanBin
                 if (bool.TryParse(sVerbose, out tmp) == true)
                 {
                     debug = tmp;
+                    Logger.WriteLog(LogLevelL4N.DEBUG, $"Cleanbin: verbose = {debug}");
                 }
             }
 
